@@ -37,7 +37,7 @@
           <div class="mb-1 is-size-6">29 Likes</div>
           <div class="mb-1 is-size-6" style="cursor: pointer;">View all comments</div>
           <!-- convert this to input field -->
-          <div class="mb-1 is-size-6">View a comment...</div>
+          <div class="mb-1 is-size-6">Add a comment...</div>
         </div>
       </div>
     </div>
