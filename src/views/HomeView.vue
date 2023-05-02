@@ -18,13 +18,12 @@ import TheFeed from '@/components/TheFeed.vue'
 </template>
 
 <style>
-
 .sidebar {
   border-right: 1px solid #cacaca;
-    position: fixed;
-    height: 100vh;
-    top: 0;
-    min-width: 200px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  min-width: 200px;
 }
 
 @media screen and (min-width: 1366px) {

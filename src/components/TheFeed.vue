@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div v-for="i of 5" class="card mb-6 is-shadowless" :key="i">
+  <div v-for="i of 5" class="card mb-3 is-shadowless" :key="i">
     <div class="card-content px-0">
       <div class="media">
         <div class="media-left">
@@ -28,15 +28,16 @@
       </figure>
     </div>
 
-    <div class="card-content p-0">
+    <div class="card-content p-0 pb-4">
       <div class="content">
         <div class="">
           <div class="mb-1 is-size-3">
             🖤 💭 ✈️
           </div>
           <div class="mb-1 is-size-6">29 Likes</div>
-          <div class="mb-1 is-size-6">View all comments</div>
-          <div class="is-size-6">View a comment...</div>
+          <div class="mb-1 is-size-6" style="cursor: pointer;">View all comments</div>
+          <!-- convert this to input field -->
+          <div class="mb-1 is-size-6">View a comment...</div>
         </div>
       </div>
     </div>
@@ -46,5 +47,7 @@
 <style scoped>
 .card {
   width: min(100vw, 400px);
+  border-bottom: 1px solid #cacaca;
+  
 }
 </style>
