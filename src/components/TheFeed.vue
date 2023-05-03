@@ -24,7 +24,7 @@
 
     <div class="card-image">
       <figure class="image is-1by1">
-        <img :src="`https://picsum.photos/seed/${i}/1000`" alt="Placeholder image" />
+        <img :src="`https://picsum.photos/seed/${Math.floor(Math.random() * 1000) + 1}/1000`" alt="Placeholder image" />
       </figure>
     </div>
 
