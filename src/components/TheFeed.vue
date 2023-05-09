@@ -1,45 +1,20 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import type { Post } from '../feed'
-import { feedPosts } from '../feed'
-import dayjs from 'dayjs'
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
-dayjs.extend(isSameOrAfter)
+import { usePostsStore } from '../stores/postsStore'
+import { filters } from '../constants'
 
-type filterType = 'All' | 'Last week' | 'Last month'
-const filters: filterType[] = ['All', 'Last week', 'Last month']
+const postsStore = usePostsStore()
 
-const selectedFilter = ref<string>('All')
-
-const setSelectedFilter = (filter: filterType) => {
-  selectedFilter.value = filter
-}
-
-const filteredPost = computed<Post[]>(() => {
-  return feedPosts.filter((post: Post) => {
-    if (selectedFilter.value === 'Last week') {
-      return post.date.isSameOrAfter(dayjs().subtract(1, 'week'))
-    }
-
-    if (selectedFilter.value === 'Last month') {
-      return post.date.isSameOrAfter(dayjs().subtract(1, 'month'))
-    }
-
-    return true
-  })
-}
-)
 </script>
 
 <template>
   <div class="panel responsive-feed-width">
     <p class="panel-tabs">
-      <a v-for="filter in filters" :key="filter" :class="{ 'is-active': filter === selectedFilter }"
-        @click="setSelectedFilter(filter)">{{ filter }}</a>
+      <a v-for="filter in filters" :key="filter" :class="{ 'is-active': filter === postsStore.selectedFilter }"
+        @click="postsStore.setSelectedFilter(filter)">{{ filter }}</a>
     </p>
   </div>
 
-  <div v-for="post of filteredPost" class="card mb-3 is-shadowless responsive-feed-width" :key="post.id">
+  <div v-for="post of postsStore.filteredPosts" class="card mb-3 is-shadowless responsive-feed-width" :key="post.id">
     <div class="card-content px-0">
       <div class="media">
         <div class="media-left">
